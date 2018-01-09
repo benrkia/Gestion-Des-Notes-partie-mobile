@@ -1,14 +1,32 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<div id="mySplash" [style.display]="splash ? 'flex': 'none'">
+  <div class="mySplash-wrapper">
+    <img src="assets/imgs/logo.png">
+  </div>
+</div>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="background">
+	<ion-card>
+		<ion-card-header>
+			SIGN IN
+		</ion-card-header>
+		<ion-card-content>
+			<form (ngSubmit)="signIn()">
+				<ion-list no-line>
+					<ion-item>
+						<ion-input type="text" placeholder="Email" [(ngModel)]="signInComponents.email" name="email"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input type="password" placeholder="Password" [(ngModel)]="signInComponents.password" name="password"></ion-input>
+					</ion-item>
+				</ion-list>
+				<a>Forgot your login details? <b>Comming Soon...</b></a>
+				<button ion-button block outline color="white" type="submit">
+					<ion-icon name="log-in"></ion-icon>Sign In
+				</button>
+			</form>
+			<button (click)="signUp()" ion-button block color="white">
+				<ion-icon name="add-circle"></ion-icon>Sign Up
+			</button>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

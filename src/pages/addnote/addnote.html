@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div class="note">
+		<form (ngSubmit)="addNote()">
+			<ion-list no-line>
+				<ion-item>
+					<ion-input type="text" required placeholder="Note Name" [(ngModel)]="Note.NOTE_NAME" name="NOTE_NAME"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="text" placeholder="Chapter" [(ngModel)]="Note.CHAPT_TITLE" name="CHAPT_TITLE"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label>Select Element</ion-label>
+					<ion-select [(ngModel)]="Note.ELEMENT_ID" name="ELEMENT_ID">
+				    	<ion-option *ngFor="let item of Elements" [value]="item.ELEMENT_ID">{{item.ELEMENT_NAME}}</ion-option>
+					</ion-select>
+				</ion-item>
+				<ion-item>
+					<ion-textarea type="text" placeholder="Your Note Here" [(ngModel)]="Note.CONTENT" name="CONTENT"></ion-textarea>
+				</ion-item>
+				<ion-item>
+					<ion-input type="text" placeholder="Enter a Note 'remarque'" [(ngModel)]="Note.NOTES" name="NOTES"></ion-input>
+				</ion-item>
+			</ion-list>
+			<button class="buAddNote" ion-button block outline color="main" type="submit">
+				<ion-icon name="add-circle"></ion-icon>Add Note
+			</button>
+		</form>
+	</div>
+</ion-content>

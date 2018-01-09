@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Student: {{UserInfo.USER_FNAME}} {{UserInfo.USER_LNAME}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-fab right bottom>
+	    <button ion-fab mini  color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+	    <ion-fab-list side="left">
+	      <button (click)="addNote()" ion-fab><ion-icon name="add"></ion-icon></button>
+	      <button (click)="logOut()" ion-fab><ion-icon name="power"></ion-icon></button>
+	    </ion-fab-list>
+	</ion-fab>
+	<div  *ngIf="noteExist; else elseBlock">
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+		<ion-list>
+		  <ion-item *ngFor="let item of Notes;index as i" (click)="goToNote(i)">
+		    <ion-avatar item-start>
+		      <img src="../../assets/imgs/note.png">
+		    </ion-avatar>
+		    <h2>{{item.NOTE_NAME}}</h2>
+		    <p>{{item.CONTENT}}</p>
+		    <ion-note item-end>{{item.DATE | date:'dd-MMM-yy'}}</ion-note>
+		  </ion-item>
+		</ion-list>
+	</div>
+	<ng-template #elseBlock>
+		<div class='noNotes'>
+			<p>{{Notes}}</p>
+		</div>
+	</ng-template>
+</ion-content>

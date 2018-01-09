@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{Note.NOTE_NAME}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content #popoverContent padding class="popover-page">
+
+  <ion-fab right bottom>
+      <button ion-fab mini (click)="deleteNote()" color="danger"><ion-icon name="remove-circle"></ion-icon></button>
+  </ion-fab>
+  <div #popoverText class="text-to-change">
+
+    <div class="myHeader">
+      <h1>{{Note.NOTE_NAME}}</h1>
+      <ion-note>{{Note.DATE | date:'MMM dd, yyyy HH:mm'}}</ion-note>
+    </div>
+
+    <div class="myList">
+      <ul>
+        <li><ion-icon name="book"></ion-icon> <b>{{Note.ELEMENT_NAME}}</b></li>
+        <li><ion-icon name="copy"></ion-icon> <b>{{Note.CHAPT_TITLE}}</b></li>
+      </ul>
+    </div>
+
+    <div *ngIf="Note.NOTES !=null" class="myNote"><b>Notes:</b> {{Note.NOTES}}</div>
+
+    <div>
+      <ion-note>Content:</ion-note>
+      <textarea class="myContent" readonly class="myContent">{{Note.CONTENT}}</textarea>
+    </div>
+
+  </div>
+</ion-content>

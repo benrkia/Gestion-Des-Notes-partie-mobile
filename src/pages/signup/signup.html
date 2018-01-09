@@ -1,0 +1,44 @@
+<ion-content class="background">
+	<ion-card>
+		<ion-card-header>
+			SIGN UP
+		</ion-card-header>
+		<ion-card-content>
+			<form (ngSubmit)="signUp()">
+				<ion-list no-line>
+					<ion-item>
+						<ion-input type="text" required placeholder="First Name" [(ngModel)]="signUpComponents.fname" name="fname"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input type="text" placeholder="Last Name" [(ngModel)]="signUpComponents.lname" name="lname"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input type="number" placeholder="CNE" [(ngModel)]="signUpComponents.cne" name="cne"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-label>Select Field</ion-label>
+						<ion-select [(ngModel)]="signUpComponents.field" name="field">
+						    <ion-option *ngFor="let item of Fields" [value]="item.FILED_ID">{{item.FIELD_NAME}}</ion-option>
+						</ion-select>
+					</ion-item>
+					<ion-item>
+						<ion-input type="text" placeholder="Email" [(ngModel)]="signUpComponents.email" name="email"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input type="password" placeholder="Password" [(ngModel)]="signUpComponents.password" name="password"></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input type="password" placeholder="Confirm Password"  [(ngModel)]="signUpComponents.passwordconfirm" name="passwordconfirm"></ion-input>
+					</ion-item>
+				</ion-list>
+				<a>Get ready for the best <b>Note Memo :)</b></a>
+				<button ion-button block outline color="white" type="submit">
+					<ion-icon name="add-circle"></ion-icon>Sign Up
+				</button>
+			</form>
+			<button (click)="signIn()" ion-button block color="white">
+				<ion-icon name="log-in"></ion-icon>Sign In
+			</button>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

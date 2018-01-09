@@ -1,0 +1,57 @@
+page-addnote {
+
+	.scroll-content {
+		padding-bottom: 0!important;
+	}
+
+	.item{
+		padding: 5px;    
+		background: rgba(220, 184, 134, 0.3);
+    	border-bottom: 1px solid #a7a7a7;
+
+		.item-inner{
+			border: none!important;
+		}
+
+		.text-input{
+			color:#555;
+		}
+		.text-input:focus{
+			outline: 0!important;
+		}
+
+		.select{
+			color:#555;
+		}
+
+		ion-label{
+			color: #555!important;
+			padding-left: 7px;
+		}
+
+		ion-textarea{
+			height: 230px;
+		}
+
+		ion-textarea > textarea {
+			height: 230px;
+		    margin-top: 0;
+		    margin-bottom: 0;
+		}
+		
+		*::-webkit-input-placeholder{
+			color:#555;
+		}
+		*:-ms-input-placeholder{
+			color:#555;
+		}
+		*:-moz-input-placeholder{
+			color:#555;
+		}
+
+	}
+
+	.icon{
+		padding-right: 5px;
+	}
+}
